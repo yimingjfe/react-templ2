@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { observable } from 'mobx'
 import { observer } from 'mobx-react'
 
-@observer class Select extends React.Component {
+@observer class Select extends Component {
   @observable selection = null; /* MobX managed instance state */
 
   constructor(props, context) {

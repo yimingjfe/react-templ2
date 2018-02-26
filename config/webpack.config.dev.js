@@ -193,13 +193,28 @@ module.exports = {
               },
             ],
           },
+          // {
+          //   test: /\.css$/,
+          //   include: path.resolve(__dirname, '../node_modules'),
+          //   use: [
+          //     require.resolve('style-loader'),
+          //     require.resolve('css-loader')
+          //   ],
+          // },
           {
-            test: /\.css$/,
-            include: path.resolve(__dirname, '../node_modules'),
+            test: /\.less$/,
             use: [
               require.resolve('style-loader'),
-              require.resolve('css-loader')
-            ],
+              require.resolve('css-loader'),
+              {
+                loader: require.resolve('less-loader'),
+                options: {
+                  paths: [
+                    path.resolve(__dirname, 'node_modules')
+                  ]
+                }
+              }
+            ]
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
